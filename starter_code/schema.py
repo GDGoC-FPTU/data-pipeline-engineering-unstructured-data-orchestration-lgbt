@@ -6,8 +6,13 @@ from pydantic import BaseModel, Field
 
 class UnifiedDocument(BaseModel):
     """
-    Hệ thống cần 6 trường thông tin chuẩn (document_id, source_type, author, category, content, timestamp). 
-    TODO: Khai báo các trường với kiểu dữ liệu str ở dưới.
+    Hệ thống cần 6 trường thông tin chuẩn:
+    document_id, source_type, author, category, content, timestamp.
     """
-    # Khai báo các trường ở đây...
-    pass
+
+    document_id: str = Field(..., description="Unique ID của tài liệu")
+    source_type: str = Field(..., description="Nguồn dữ liệu (pdf, video, etc.)")
+    author: str = Field(..., description="Tác giả hoặc người tạo nội dung")
+    category: str = Field(..., description="Phân loại nội dung")
+    content: str = Field(..., description="Nội dung chính của tài liệu")
+    timestamp: str = Field(..., description="Thời điểm tạo hoặc thu thập dữ liệu")
